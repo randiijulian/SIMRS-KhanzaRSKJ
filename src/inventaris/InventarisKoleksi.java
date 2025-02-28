@@ -1624,22 +1624,21 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-    }   
-    
-    private void isPhoto(){
-        if(ChkAccor.isSelected()==true){
-            ChkAccor.setVisible(false);
-            PanelAccor.setPreferredSize(new Dimension(internalFrame1.getWidth()-300,HEIGHT));
-            FormPhoto.setVisible(true);  
-            ChkAccor.setVisible(true);
-        }else if(ChkAccor.isSelected()==false){    
-            ChkAccor.setVisible(false);
-            PanelAccor.setPreferredSize(new Dimension(15,HEIGHT));
-            FormPhoto.setVisible(false);  
-            ChkAccor.setVisible(true);
-        }
-    }
-    
+    }       
+            private void isPhoto(){
+                if(ChkAccor.isSelected()==true){           
+                    ChkAccor.setVisible(false);
+                    PanelAccor.setPreferredSize(new Dimension(internalFrame1.getWidth()-300,HEIGHT));
+                    FormPhoto.setVisible(true);  
+                    ChkAccor.setVisible(true);
+               }else if(ChkAccor.isSelected()==false){    
+                   ChkAccor.setVisible(false);
+                    PanelAccor.setPreferredSize(new Dimension(15,HEIGHT));
+                   FormPhoto.setVisible(false);  
+                   ChkAccor.setVisible(true);
+               }
+            }
+
     private void panggilPhoto() {
         if(FormPhoto.isVisible()==true){
             try {
