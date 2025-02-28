@@ -33,7 +33,10 @@ import javax.swing.Timer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import javax.swing.text.Document;
 import kepegawaian.DlgCariPetugas;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 
 
 /**
@@ -152,7 +155,26 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
                 }
             });
         }
+        //Menmapilkan Kode Html do java  
+         HTMLEditorKit kit = new HTMLEditorKit();
+       LoadHTML1.setEditable(true);
+        LoadHTML1.setEditorKit(kit);
+        StyleSheet styleSheet = kit.getStyleSheet();
+        styleSheet.addRule(
+               ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+              ".isi2 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#323232;}"+
+               ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+               ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+               ".isi5 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#AA0000;}"+
+               ".isi6 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#FF0000;}"+
+               ".isi7 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#C8C800;}"+
+               ".isi8 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#00AA00;}"+
+              ".isi9 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#969696;}"+
+                ".head td{border-right: 1px solid #777777;font: 8.5px tahoma;height:10px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"
+       );
         
+        Document doc = kit.createDefaultDocument();
+        LoadHTML1.setDocument(doc);
         petugas.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {}
@@ -182,7 +204,8 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
     }
     
 
-
+     
+       
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -281,11 +304,10 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         FormPhoto = new widget.PanelBiasa();
-        FormPass2 = new widget.PanelBiasa();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        LoadHTML1 = new widget.editorpane();
         btnAmbilPhoto = new widget.Button();
         BtnRefreshPhoto = new widget.Button();
-        LoadHTML = new widget.editorpane();
-        LoadHTML1 = new widget.editorpane();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -1049,10 +1071,18 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
         FormPhoto.setPreferredSize(new java.awt.Dimension(115, 73));
         FormPhoto.setLayout(new java.awt.BorderLayout());
 
-        FormPass2.setBackground(new java.awt.Color(255, 255, 255));
-        FormPass2.setBorder(null);
-        FormPass2.setName("FormPass2"); // NOI18N
-        FormPass2.setPreferredSize(new java.awt.Dimension(115, 40));
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        LoadHTML1.setBorder(null);
+        LoadHTML1.setName("LoadHTML1"); // NOI18N
+        jScrollPane1.setViewportView(LoadHTML1);
+        LoadHTML1.getAccessibleContext().setAccessibleName("");
+
+        FormPhoto.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        FormInput.add(FormPhoto);
+        FormPhoto.setBounds(850, 20, 270, 370);
+        FormPhoto.getAccessibleContext().setAccessibleName("Pasien");
 
         btnAmbilPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/plus_16.png"))); // NOI18N
         btnAmbilPhoto.setMnemonic('U');
@@ -1065,7 +1095,8 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
                 btnAmbilPhotoActionPerformed(evt);
             }
         });
-        FormPass2.add(btnAmbilPhoto);
+        FormInput.add(btnAmbilPhoto);
+        btnAmbilPhoto.setBounds(850, 400, 100, 30);
 
         BtnRefreshPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/refresh.png"))); // NOI18N
         BtnRefreshPhoto.setMnemonic('U');
@@ -1078,24 +1109,8 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
                 BtnRefreshPhotoActionPerformed(evt);
             }
         });
-        FormPass2.add(BtnRefreshPhoto);
-
-        FormPhoto.add(FormPass2, java.awt.BorderLayout.PAGE_END);
-
-        FormInput.add(FormPhoto);
-        FormPhoto.setBounds(800, 40, 300, 350);
-        FormPhoto.getAccessibleContext().setAccessibleName("Pasien");
-
-        LoadHTML.setBorder(null);
-        LoadHTML.setName("LoadHTML"); // NOI18N
-        FormInput.add(LoadHTML);
-        LoadHTML.setBounds(890, 70, 198, 187);
-
-        LoadHTML1.setBorder(null);
-        LoadHTML1.setName("LoadHTML1"); // NOI18N
-        FormInput.add(LoadHTML1);
-        LoadHTML1.setBounds(950, 50, 560, 300);
-        LoadHTML1.getAccessibleContext().setAccessibleName("");
+        FormInput.add(BtnRefreshPhoto);
+        BtnRefreshPhoto.setBounds(950, 400, 100, 30);
 
         scrollInput.setViewportView(FormInput);
 
@@ -1354,7 +1369,9 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
             }
         }
 }//GEN-LAST:event_tbObatMouseClicked
+    
 
+   
     private void tbObatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbObatKeyPressed
         if(tabMode.getRowCount()!=0){
             if((evt.getKeyCode()==KeyEvent.VK_ENTER)||(evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
@@ -1558,13 +1575,11 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
     private widget.Tanggal DTPCari2;
     private widget.ComboBox Detik;
     private widget.PanelBiasa FormInput;
-    private widget.PanelBiasa FormPass2;
     private widget.PanelBiasa FormPhoto;
     private widget.TextArea HasilSkrining;
     private widget.TextBox JK;
     private widget.ComboBox Jam;
     private widget.Label LCount;
-    private widget.editorpane LoadHTML;
     private widget.editorpane LoadHTML1;
     private widget.ComboBox Menit;
     private javax.swing.JMenuItem MnPenilaianLanjutanRisikoJatuh;
@@ -1628,6 +1643,7 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
     private widget.Label jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1961,7 +1977,9 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
             TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (0-24), Tindakan : Intervensi pencegahan risiko jatuh standar");
         }
     }
-
+      
+ 
+    
     private void panggilPhoto() {
         if(FormPhoto.isVisible()==true){
             try {
@@ -1973,7 +1991,7 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
                         if(rs.getString("photo").equals("")||rs.getString("photo").equals("-")){
                             LoadHTML1.setText("<html><body><center><br><br><font face='tahoma' size='2' color='#434343'>Kosong</font></center></body></html>");
                         }else{
-                            LoadHTML1.setText("<html><body><center><img src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/resikojatuh/"+rs.getString("photo")+"' alt='photo' width='"+(internalFrame1.getWidth()-330)+"' height='"+(internalFrame1.getHeight()-260)+"'/></center></body></html>");
+                            LoadHTML1.setText("<html><body><center><img src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/resikojatuh/"+rs.getString("photo")+"' alt='photo' width='"+(internalFrame1.getWidth()-200)+"' height='"+(internalFrame1.getHeight()-1)+"'/></center></body></html>");
                         }  
                     }else{
                         LoadHTML1.setText("<html><body><center><br><br><font face='tahoma' size='2' color='#434343'>Kosong</font></center></body></html>");
@@ -1994,6 +2012,7 @@ public final class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDia
         }
     }
     }
+   
 
 
         
