@@ -576,7 +576,7 @@ public final class DlgPilihanCetakDokumen extends javax.swing.JDialog {
                            "inner join penjab on pasien.kd_pj=penjab.kd_pj and pasien.kd_kel=kelurahan.kd_kel "+
                            "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab  where pasien.no_rkm_medis='"+NoRm+"' ",param);
                     this.setCursor(Cursor.getDefaultCursor());
-                }else if(tbData.getValueAt(i,1).toString().equals("Surat Jaminan & Bukti Pelayanan Ralan")){
+                }else if(tbData.getValueAt(i,1).toString().equals("Surat Formulir Rawat Jalan")){
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     Map<String, Object> param = new HashMap<>();
                     param.put("namars",akses.getnamars());
@@ -1545,7 +1545,7 @@ public final class DlgPilihanCetakDokumen extends javax.swing.JDialog {
             TabMode.addRow(new Object[]{false,"Bukti Register 1"});//20,0
             TabMode.addRow(new Object[]{false,"Bukti Register 2"});//21,0
             TabMode.addRow(new Object[]{false,"Persetujuan Medis"});//22,0
-            TabMode.addRow(new Object[]{false,"Surat Jaminan & Bukti Pelayanan Ralan"});//23,0
+            TabMode.addRow(new Object[]{false,"Surat Formulir Rawat Jalan"});//23,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kanan"});//24,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kiri"});//25,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kanan+Tracker"});//26,0
@@ -1606,7 +1606,7 @@ public final class DlgPilihanCetakDokumen extends javax.swing.JDialog {
             TabMode.addRow(new Object[]{false,"Bukti Register 1"});//20,0
             TabMode.addRow(new Object[]{false,"Bukti Register 2"});//21,0
             TabMode.addRow(new Object[]{false,"Persetujuan Medis"});//22,0
-            TabMode.addRow(new Object[]{false,"Surat Jaminan & Bukti Pelayanan Ralan"});//23,0
+            TabMode.addRow(new Object[]{false,"Surat Formulir Rawat Jalan"});//23,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kanan"});//24,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kiri"});//25,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kanan+Tracker"});//26,0
@@ -1657,7 +1657,7 @@ public final class DlgPilihanCetakDokumen extends javax.swing.JDialog {
             TabMode.addRow(new Object[]{false,"Bukti Register 1"});//20,0
             TabMode.addRow(new Object[]{false,"Bukti Register 2"});//20,0
             TabMode.addRow(new Object[]{false,"Persetujuan Medis"});//21,0
-            TabMode.addRow(new Object[]{false,"Surat Jaminan & Bukti Pelayanan Ralan"});//22,0
+            TabMode.addRow(new Object[]{false,"Surat Formulir Rawat Jalan"});//22,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kanan"});//23,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kiri"});//24,0
             TabMode.addRow(new Object[]{false,"Check List Kelengkapan Pendaftaran Kanan+Tracker"});//25,0
